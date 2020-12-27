@@ -6,13 +6,13 @@ const sleep = (timeout: number) => {
     setTimeout(() => resolve(undefined), timeout)
   );
 };
-export async function addItemAsync(
+export const addItemAsync = async (
   dispatch: Dispatch<DemoActions>,
   item: string
-) {
+) => {
   dispatch(actions.setLoading(true));
 
   await sleep(1000);
   dispatch(actions.addItemToList(item));
   dispatch(actions.setLoading(false));
-}
+};
